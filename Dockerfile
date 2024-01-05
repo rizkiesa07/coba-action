@@ -3,7 +3,7 @@ WORKDIR /src/app
 COPY . .
 RUN npm install
 RUN npm run build
-FROM code:20-alpine
+FROM node:20-alpine
 WORKDIR /scr/app
 COPY --from=stage /src/app/dist ./dist
 CMD [ "node","dist/main.js"]
